@@ -4,7 +4,14 @@ This is Dex Java SDK, This is a lightweight Java library, you can import to your
 
 The SDK supports both synchronous and asynchronous RESTful API invoking, and subscribe the market data from the Websocket connection.
 
-
+### Dependent on maven for internal use only (Users can upload nexus to use)
+```
+<dependency>
+   <groupId>org.vite.sdk</groupId>
+   <artifactId>dex-java-sdk</artifactId>
+   <version>1.0.0-SNAPSHOT</version>
+</dependency>
+```
 
 ## Beginning
 
