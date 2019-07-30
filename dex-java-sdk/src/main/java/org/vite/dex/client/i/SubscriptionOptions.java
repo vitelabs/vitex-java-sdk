@@ -9,9 +9,9 @@ public class SubscriptionOptions {
 
     private String url = null;
     private boolean isAutoReconnect = true;
-    private int receiveLimitMs = 60_000;
+    private int receiveLimitMs = 60000;
     private int connectionDelayOnFailure = 15;
-    private int pingIntervalMs = 10_000;
+    private int pingIntervalMs = 10000;
 
 
     public SubscriptionOptions(SubscriptionOptions options) {
