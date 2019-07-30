@@ -25,8 +25,9 @@ In your Java project, you can follow below steps:
 * Call the interfaces provided by client.
 
 ```java
-SyncRequestClient syncClient = DexClientFactory.syncRequestClient().serverUrl("https://vitex.vite.net/beta").build();
 
+SyncRequestClient syncClient = DexClientFactory.syncRequestClient().serverUrl("https://vitex.vite.net/beta").build();
+        
 // Get the latest VITE_BTC-000‘s kline data and print the highest price on console
 MarketKlineList minuteKline = syncRequestClient.getLatestKline("GRIN-000_VITE", KlineInterval.Minute, 10);
 logger.info("minuteKline:{}", minuteKline);
@@ -105,6 +106,7 @@ To invoke the interface by synchronous, you can create the ```SyncRequestClient`
 
 ```java
 SyncRequestClient syncRequestClient = DexClientFactory.syncRequestClient().serverUrl("https://vitex.vite.net/").build();
+
 // Get the best bid and ask for GRIN-000_VITE, print the best ask price and amount on console.
 BookTicker bestBookTicker = syncRequestClient.getBestBookTicker("GRIN-000_VITE");
 logger.info("data:{}", bestBookTicker);
@@ -117,15 +119,17 @@ To invoke the interface by asynchronous, you can create the ```AsyncRequestClien
 
 ```java
 AsyncRequestClient asyncRequestClient = DexClientFactory.asyncRequestClient().serverUrl("https://vitex.vite.net/test").build();
+
 // Get the price depth for VTT-000_VITE, print bid price and ask price in first level.
 asyncRequestClient.getLatestDepth("VTT-000_VITE", 10, t -> {
      logger.info("success:{},data:{}", t.succeeded(), t.getData());
 });
+
 try {
-      TimeUnit.SECONDS.sleep(30);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
+    TimeUnit.SECONDS.sleep(30);
+} catch (InterruptedException e) {
+    e.printStackTrace();
+}
 
 ```
 
@@ -139,15 +143,15 @@ To receive the subscribed data, you can create the ```SubscriptionClient``` by c
 SubscriptionClient subscriptionClient = DexClientFactory.subscriptionClient().serverUrl("wss://vitex.vite.net/websocket").build();
 
 // Subscribe the trade update for GRIN-000_ETH-000.
-        subscriptionClient.subscribeTradeEvent("GRIN-000_ETH-000", t -> {
-            logger.info("data:{}", t);
-        });
+subscriptionClient.subscribeTradeEvent("GRIN-000_ETH-000", t -> {
+     logger.info("data:{}", t);
+});
 
-        try {
-            TimeUnit.HOURS.sleep(1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+try {
+    TimeUnit.HOURS.sleep(1);
+} catch (InterruptedException e) {
+    e.printStackTrace();
+}
 ```
 
 The subscription method supports multi-symbol string. Each symbol should be separated by a comma.
@@ -166,6 +170,7 @@ To invoke the interface by synchronous, you can create the ```NodeRpcClient``` b
 Key key = WalletClient.getKeyPairFromMnemonics("", 0);
 NodeRpcClient rpcClient = DexClientFactory.nodeRpcClient().runPow(true).key(key).serverUrl("https://api.vitewallet.com/ios/").build();
 SyncRequestClient syncRequestClient = DexClientFactory.syncRequestClient().serverUrl("https://vitex.vite.net/").build();
+
 // cancle the order  on console.
 String cancelHash = rpcClient.cancelOrder("00000400fffffffff5ffffffffff005d3e9f49000444");
 logger.info("cancelHash:{}", cancelHash);
