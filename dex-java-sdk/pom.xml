@@ -17,6 +17,7 @@
         <okhttp3.version>3.12.1</okhttp3.version>
         <fastjson.version>1.2.47</fastjson.version>
         <kotlin.version>1.2.71</kotlin.version>
+        <javadocExecutable>${java.home}/../bin/javadoc</javadocExecutable>
     </properties>
 
     <licenses>
