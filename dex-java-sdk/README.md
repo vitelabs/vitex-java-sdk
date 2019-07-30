@@ -102,7 +102,7 @@ For Dex Server beta subscription: `wss://vitex.vite.net/beta/websocket`
 
 For Dex Server online subscription: `wss://vitex.vite.net/websocket`
 
-For Vite Node beta request: 
+For Vite Node beta request: http://212.64.0.60:48132
 
 For Vite Node online request: `https://api.vitewallet.com/ios/`
 
