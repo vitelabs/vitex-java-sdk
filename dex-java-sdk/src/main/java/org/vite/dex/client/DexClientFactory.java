@@ -10,8 +10,8 @@ public final class DexClientFactory {
         return AsyncRequestClient.builder();
     }
 
-    public static WebSocketStreamClient subscriptionClient() {
-        return WebSocketStreamClient.builder();
+    public static SubscriptionClient subscriptionClient() {
+        return SubscriptionClient.builder();
     }
 
     public static NodeRpcClient nodeRpcClient() {

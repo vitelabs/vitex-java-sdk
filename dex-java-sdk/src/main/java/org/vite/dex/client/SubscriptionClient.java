@@ -10,7 +10,7 @@ import org.vite.dex.client.i.SubscriptionOptions;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-public class WebSocketStreamClient implements Subscription {
+public class SubscriptionClient implements Subscription {
 
     private WebSocketRequestImpl requestImpl;
     private WebSocketConnection connection;
@@ -21,41 +21,41 @@ public class WebSocketStreamClient implements Subscription {
     private String secretKey;
     private String serverUrl;
 
-    private WebSocketStreamClient() {
+    private SubscriptionClient() {
 
     }
 
-    public static WebSocketStreamClient builder() {
-        return new WebSocketStreamClient();
+    public static SubscriptionClient builder() {
+        return new SubscriptionClient();
     }
 
-    public WebSocketStreamClient apiKey(String apiKey) {
+    public SubscriptionClient apiKey(String apiKey) {
         this.apiKey = apiKey;
         return this;
     }
 
-    public WebSocketStreamClient secretKey(String secretKey) {
+    public SubscriptionClient secretKey(String secretKey) {
         this.secretKey = secretKey;
         return this;
     }
 
-    public WebSocketStreamClient serverUrl(String serverUrl) {
+    public SubscriptionClient serverUrl(String serverUrl) {
         this.serverUrl = serverUrl;
         this.options = new SubscriptionOptions(serverUrl);
         return this;
     }
 
-    public WebSocketStreamClient options(SubscriptionOptions options) {
+    public SubscriptionClient options(SubscriptionOptions options) {
         this.options = options;
         return this;
     }
 
-    public WebSocketStreamClient watchDog(WebSocketWatchDog watchDog) {
+    public SubscriptionClient watchDog(WebSocketWatchDog watchDog) {
         this.watchDog = watchDog;
         return this;
     }
 
-    public WebSocketStreamClient build() {
+    public SubscriptionClient build() {
         Objects.requireNonNull(this.options);
         if (watchDog == null) {
             watchDog = new WebSocketWatchDog(options);
