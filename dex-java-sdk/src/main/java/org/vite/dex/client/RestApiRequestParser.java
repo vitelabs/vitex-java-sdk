@@ -135,7 +135,7 @@ class RestApiRequestParser {
     }
 
     RestApiRequest<TradeList> getHistoricalTrade(String symbol, Integer offset, Integer limit, String orderId, Byte side, Long startTime, Long endTime, Integer total) {
-        limit = limit == null ? 10 : limit;
+        limit = limit == null ? 100 : limit;
         InputChecker.checker()
                 .checkSymbol(symbol)
                 .checkRange(limit, 1, 100, "limit");
@@ -173,7 +173,7 @@ class RestApiRequestParser {
 
 
     RestApiRequest<OrderList> getHistoricalOrder(String address, String quoteTokenSymbol, String tradeTokenSymbol, Integer offset, Integer limit, Long startTime, Long endTime, Integer side, Integer status, Integer total) {
-        limit = limit == null ? 10 : limit;
+        limit = limit == null ? 100 : limit;
         InputChecker.checker()
                 .checkAddress(address)
                 .checkRange(limit, 1, 100, "limit");
@@ -200,7 +200,7 @@ class RestApiRequestParser {
 
     RestApiRequest<DepositWithdrawList> getWithdrawAndDepositHistory(String address, String tokenId, Integer offset, Integer limit) {
         offset = offset == null ? 0 : offset;
-        limit = limit == null ? 10 : limit;
+        limit = limit == null ? 100 : limit;
         InputChecker.checker()
                 .checkAddress(address)
                 .checkToken(tokenId)

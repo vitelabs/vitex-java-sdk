@@ -57,7 +57,7 @@ public class NodeRpcClientTest {
         for (int i = 0; i < tokenDetail.getTokenDecimals(); i++) {
             decimalStr.append("0");
         }
-        //数量需要乘以token精度
+        //The quantity of Trade Token. The actual quantity multiplied by the accuracy of the currency in which it is traded.
         BigDecimal result = new BigDecimal(quantity).multiply(new BigDecimal(decimalStr.toString()));
         if (result.doubleValue() <= 0) {
             throw new DexApiException(DexApiException.INPUT_ERROR, "quantity is error");

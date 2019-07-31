@@ -18,7 +18,6 @@ public class SubscriptionTest {
 
     @Test
     public void subscribeKlineEvent() {
-
         subscriptionClient.subscribeKlineEvent("GRIN-000_ETH-000", KlineInterval.Minute, t -> {
             logger.info("data:{}", t);
         });
@@ -32,7 +31,6 @@ public class SubscriptionTest {
 
     @Test
     public void subscribeKlineEvent1() {
-
         subscriptionClient.subscribeKlineEvent("GRIN-000_ETH-000", KlineInterval.Minute, t -> {
             logger.info("data:{}", t);
         },e->{
@@ -48,7 +46,6 @@ public class SubscriptionTest {
 
     @Test
     public void subscribeDepthEvent() {
-
         subscriptionClient.subscribeDepthEvent("GRIN-000_ETH-000", t -> {
             logger.info("data:{}", t);
         });
@@ -62,7 +59,6 @@ public class SubscriptionTest {
 
     @Test
     public void subscribeDepthEvent1() {
-
         subscriptionClient.subscribeDepthEvent("GRIN-000_ETH-000", t -> {
             logger.info("data:{}", t);
         },e->{
@@ -78,7 +74,6 @@ public class SubscriptionTest {
 
     @Test
     public void subscribeTradeEvent() {
-
         subscriptionClient.subscribeTradeEvent("GRIN-000_ETH-000", t -> {
             logger.info("data:{}", t);
         });
@@ -92,7 +87,6 @@ public class SubscriptionTest {
 
     @Test
     public void subscribeTradeEvent1() {
-
         subscriptionClient.subscribeTradeEvent("GRIN-000_ETH-000", t -> {
             logger.info("data:{}", t);
         },e->{
@@ -108,7 +102,6 @@ public class SubscriptionTest {
 
     @Test
     public void subscribeOrderUpdateEvent() {
-
         subscriptionClient.subscribeOrderUpdateEvent("vite_836ba5e4d3f75b013bf33f1a19fafdcacc59eb8eb6e66d2b24", t -> {
             logger.info("data:{}", t);
         });
@@ -138,7 +131,6 @@ public class SubscriptionTest {
 
     @Test
     public void subscribe24HTickerStatisticsEvent() {
-
         subscriptionClient.subscribe24HTickerStatisticsEvent("T-000_VITE", t -> {
             logger.info("data:{}", t);
         });
@@ -153,7 +145,6 @@ public class SubscriptionTest {
 
     @Test
     public void subscribe24HTickerStatisticsEvent1() {
-
         subscriptionClient.subscribe24HTickerStatisticsEvent("T-000_VITE", t -> {
             logger.info("data:{}", t);
         }, e -> {
@@ -170,7 +161,6 @@ public class SubscriptionTest {
 
     @Test
     public void unsubscribeAll() {
-
         subscriptionClient.unsubscribeAll();
 
         try {

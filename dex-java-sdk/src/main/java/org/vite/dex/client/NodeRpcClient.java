@@ -49,7 +49,7 @@ public class NodeRpcClient implements NodeRpcRequest {
 
     @Override
     public String orderSell(String tradeToken, String quoteToken, String price, String quantity) {
-        return order(tradeToken,quoteToken,false,price,quantity);
+        return order(tradeToken,quoteToken,true,price,quantity);
     }
 
     @Override

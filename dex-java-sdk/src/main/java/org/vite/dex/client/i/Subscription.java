@@ -13,24 +13,22 @@ import org.vite.dex.client.bean.event.*;
 public interface Subscription {
 
     /**
-     * Subscribe candlestick/kline event. If the candlestick/kline is updated, server will send the
+     * Subscribe kline event. If the kline is updated, server will send the
      * data to client and onReceive in callback will be called.
      *
-     * @param symbols  The symbols, like "ABC_VITE". Use comma to separate multi symbols, like
-     *                 "ABC_VITE,ABC_VITE".
-     * @param interval The candlestick/kline interval, MIN1, MIN5, DAY1 etc.
+     * @param symbols  Market pair split by `,` . Example: ABC-000_VITE, ABC-001_VITE.
+     * @param interval Interval. Allowed value: [ minute 、 hour 、 day 、 minute30 、 hour6 、 hour12 、 week ].
      * @param callback The implementation is required. onReceive will be called if receive server's
      *                 update.
      */
     void subscribeKlineEvent(String symbols, KlineInterval interval, SubscriptionListener<KlineEvent> callback);
 
     /**
-     * Subscribe candlestick/kline event. If the candlestick/kline is updated, server will send the
+     * Subscribe kline event. If the candlestick/kline is updated, server will send the
      * data to client and onReceive in callback will be called.
      *
-     * @param symbols      The symbols, like "ABC_VITE". Use comma to separate multi symbols, like
-     *                     "ABC_VITE,ABC_VITE".
-     * @param interval     The candlestick/kline interval, MIN1, MIN5, DAY1 etc.
+     * @param symbols      Market pair split by `,` . Example: ABC-000_VITE, ABC-001_VITE.
+     * @param interval     Interval. Allowed value: [ minute 、 hour 、 day 、 minute30 、 hour6 、 hour12 、 week ].
      * @param callback     The implementation is required. onReceive will be called if receive server's
      *                     update.
      * @param errorHandler The error handler will be called if subscription failed or error happen
@@ -42,8 +40,7 @@ public interface Subscription {
      * Subscribe price depth event. If the price depth is updated, server will send the data to client
      * and onReceive in callback will be called.
      *
-     * @param symbols  The symbols, like "ABC_VITE". Use comma to separate multi symbols, like
-     *                 "ABC_VITE,ABC_VITE".
+     * @param symbols  Market pair split by `,` . Example: ABC-000_VITE, ABC-001_VITE.
      * @param callback The implementation is required. onReceive will be called if receive server's
      *                 update.
      */
@@ -53,8 +50,7 @@ public interface Subscription {
      * Subscribe price depth event. If the price depth is updated, server will send the data to client
      * and onReceive in callback will be called.
      *
-     * @param symbols      The symbols, like "ABC_VITE". Use comma to separate multi symbols, like
-     *                     "ABC_VITE,ABC_VITE".
+     * @param symbols      Market pair split by `,` . Example: ABC-000_VITE, ABC-001_VITE.
      * @param callback     The implementation is required. onReceive will be called if receive server's
      *                     update.
      * @param errorHandler The error handler will be called if subscription failed or error happen
@@ -63,21 +59,10 @@ public interface Subscription {
     void subscribeDepthEvent(String symbols, SubscriptionListener<DepthEvent> callback, SubscriptionErrorHandler errorHandler);
 
     /**
-     * Subscribe price depth event. If the price depth is updated server will send the data to client
-     * and onReceive in callback will be called.
-     *
-     * @param symbols  The symbols, like "ABC_VITE". Use comma to separate multi symbols, like
-     *                 "ABC_VITE,ABC_VITE".
-     * @param callback The implementation is required. onReceive will be called if receive server's
-     *                 update.
-     */
-
-    /**
      * Subscribe price depth event. If the price depth is updated, server will send the data to client
      * and onReceive in callback will be called.
      *
-     * @param symbols  The symbols, like "ABC_VITE". Use comma to separate multi symbols, like
-     *                 "ABC_VITE,ABC_VITE".
+     * @param symbols  Market pair split by `,` . Example: ABC-000_VITE, ABC-001_VITE.
      * @param steps    The price decimal, like "1" . Use comma to merge depth order.
      * @param callback The implementation is required. onReceive will be called if receive server's
      *                 update.
@@ -88,8 +73,7 @@ public interface Subscription {
      * Subscribe price depth event. If the price depth is updated, server will send the data to client
      * and onReceive in callback will be called.
      *
-     * @param symbols      The symbols, like "ABC_VITE". Use comma to separate multi symbols, like
-     *                     "ABC_VITE,ABC_VITE".
+     * @param symbols      Market pair split by `,` . Example: ABC-000_VITE, ABC-001_VITE.
      * @param steps        The price decimal, like "1" . Use comma to merge depth order.
      * @param callback     The implementation is required. onReceive will be called if receive server's
      *                     update.
@@ -99,22 +83,20 @@ public interface Subscription {
     void subscribeDepthEvent(String symbols, Integer steps, SubscriptionListener<DepthEvent> callback, SubscriptionErrorHandler errorHandler);
 
     /**
-     * Subscribe price depth event. If the price depth is updated server will send the data to client
+     * Subscribe trade event. If the trade is updated server will send the data to client
      * and onReceive in callback will be called.
      *
-     * @param symbols  The symbols, like "ABC_VITE". Use comma to separate multi symbols, like
-     *                 "ABC_VITE,ABC_VITE".
+     * @param symbols  Market pair split by `,` . Example: ABC-000_VITE, ABC-001_VITE.
      * @param callback The implementation is required. onReceive will be called if receive server's
      *                 update.
      */
     void subscribeTradeEvent(String symbols, SubscriptionListener<TradeEvent> callback);
 
     /**
-     * Subscribe price depth event. If the price depth is updated, server will send the data to client
+     * Subscribe trade event. If the trade is updated, server will send the data to client
      * and onReceive in callback will be called.
      *
-     * @param symbols      The symbols, like "ABC_VITE". Use comma to separate multi symbols, like
-     *                     "ABC_VITE,ABC_VITE".
+     * @param symbols      Market pair split by `,` . Example: ABC-000_VITE, ABC-001_VITE.
      * @param callback     The implementation is required. onReceive will be called if receive server's
      *                     update.
      * @param errorHandler The error handler will be called if subscription failed or error happen
@@ -153,8 +135,7 @@ public interface Subscription {
      * Subscribe 24 hours trade statistics event. If statistics is generated, server will send the
      * data to client and onReceive in callback will be called.
      *
-     * @param symbols  The symbols, like "ABC_VITE". Use comma to separate multi symbols, like
-     *                 "ABC_VITE,ABC_VITE".
+     * @param symbols  Market pair split by `,` . Example: ABC-000_VITE, ABC-001_VITE.
      * @param callback The implementation is required. onReceive will be called if receive server's
      *                 update.
      */
@@ -164,8 +145,7 @@ public interface Subscription {
      * Subscribe 24 hours trade statistics event. If statistics is generated, server will send the
      * data to client and onReceive in callback will be called.
      *
-     * @param symbols      The symbols, like "ABC_VITE". Use comma to separate multi symbols, like
-     *                     "ABC_VITE,ABC_VITE".
+     * @param symbols      Market pair split by `,` . Example: ABC-000_VITE, ABC-001_VITE.
      * @param callback     The implementation is required. onReceive will be called if receive server's
      *                     update.
      * @param errorHandler The error handler will be called if subscription failed or error happen
