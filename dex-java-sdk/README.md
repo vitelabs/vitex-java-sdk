@@ -22,7 +22,7 @@ The SDK supports both synchronous and asynchronous RESTful API invoking, and sub
   - [Clients](#Clients)
   - [Create client](#Create-client)
 - [Usage](#Usage)
-  - [URL Options](#URL Options)
+  - [URL Options](#URL-Options)
   - [Synchronous](#Synchronous)
   - [Asynchronous](#Asynchronous)
   - [Subscription](#Subscription)
@@ -64,7 +64,7 @@ The SDK supports both synchronous and asynchronous RESTful API invoking, and sub
 
 For Beta version, please import the source code in java IDE (idea or eclipse)
 
-The example code is in [Demo](/vite-dex-sdk/dex-java-sdk/java/src/test/java/org/vite/dex/client/SyncRequestClientTest.java).
+The example code is in `/vite-dex-sdk/dex-java-sdk/java/src/test/java/org/vite/dex/client/SyncRequestClientTest.java`.
 
 
 ### Quick Start
