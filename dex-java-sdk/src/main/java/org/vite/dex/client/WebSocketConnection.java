@@ -97,6 +97,11 @@ public class WebSocketConnection extends WebSocketListener {
             delayInSecond--;
         } else {
             connect();
+            //重新注册topic
+            topicsWebSocketRequestMap.forEach((k,v)->{
+                send(DexProto.DexProtocol.newBuilder().setClientId(this.clientId).setOpType("sub").setTopics(k).build());
+            });
+
         }
     }
 
