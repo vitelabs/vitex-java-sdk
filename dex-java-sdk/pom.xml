@@ -27,39 +27,6 @@
         </license>
     </licenses>
 
-
-    <developers>
-        <developer>
-            <name>roymoro</name>
-            <organization>vitelabs</organization>
-            <organizationUrl>https://vite.org</organizationUrl>
-        </developer>
-    </developers>
-
-
-    <scm>
-        <connection>
-            scm:git:https://github.com/vitelabs/vite-javasdk.git
-        </connection>
-        <developerConnection>
-            scm:git:https://github.com/vitelabs/vite-javasdk.git
-        </developerConnection>
-        <url>https://github.com/vitelabs/vite-javasdk</url>
-        <tag>master</tag>
-    </scm>
-
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
-
     <dependencies>
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
