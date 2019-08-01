@@ -19,7 +19,7 @@ public class NodeRpcClientTest {
     private static final Logger logger = LoggerFactory.getLogger(NodeRpcClientTest.class);
 
     Key key = WalletClient.getKeyPairFromMnemonics("", 0);
-    NodeRpcClient rpcClient = DexClientFactory.nodeRpcClient().runPow(true).key(key).serverUrl("http://148.70.30.139:48132").build();
+    NodeRpcClient rpcClient = DexClientFactory.nodeRpcClient().runPow(true).key(key).serverUrl("xxxx").build();
     SyncRequestClient syncRequestClient = DexClientFactory.syncRequestClient().serverUrl("https://vitex.vite.net/").build();
 
     @Test

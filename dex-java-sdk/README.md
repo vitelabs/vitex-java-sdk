@@ -145,8 +145,8 @@ For Dex Server test request: `https://vitex.vite.net/beta`
 For Dex Server online request: `https://vitex.vite.net/`
 For Dex Server test subscription: `wss://vitex.vite.net/beta/websocket`
 For Dex Server online subscription: `wss://vitex.vite.net/websocket`
-For Vite Node test request: 
-For Vite Node online request: `https://api.vitewallet.com/ios/`
+For Vite Node test request: `TODO`
+For Vite Node online request: `TODO`
 
 ### Synchronous
 
@@ -224,7 +224,7 @@ Key key = WalletClient.getKeyPairFromMnemonics("", 0);
 NodeRpcClient rpcClient = DexClientFactory.nodeRpcClient()
                                           .key(key)
                                           .runPow(true)
-                                          .serverUrl("https://api.vitewallet.com/ios/")
+                                          .serverUrl("xxxx")
                                           .build();
 
 SyncRequestClient syncRequestClient = DexClientFactory.syncRequestClient()
@@ -418,7 +418,7 @@ asyncRequestClient.getWithdrawAndDepositHistory("vite_a6f541b21ff15e0b42fc3ac37d
 ```java
 //Synchronous
 Key key = WalletClient.getKeyPairFromMnemonics("", 0);
-NodeRpcClient rpcClient = DexClientFactory.nodeRpcClient().runPow(true).key(key).serverUrl("http://148.70.30.139:48132").build();
+NodeRpcClient rpcClient = DexClientFactory.nodeRpcClient().runPow(true).key(key).serverUrl("xxxxx").build();
 
 public void orderBuy() {
    String orderHash = rpcClient.orderBuy("tti_44bb5d1c7b6a97df5829b87d", "tti_5649544520544f4b454e6e40", "10.0", quantityConvert(18, "tti_44bb5d1c7b6a97df5829b87d"));
