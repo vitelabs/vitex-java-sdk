@@ -520,7 +520,7 @@ subscriptionClient.subscribeTradeEvent("GRIN-000_ETH-000", t -> {
 });
 ```
 
-###Subscribe KLine update
+### Subscribe KLine update
 
 ```java
 // Subscribe candlestick update for btcusdt.
