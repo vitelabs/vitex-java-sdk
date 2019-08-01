@@ -227,10 +227,6 @@ NodeRpcClient rpcClient = DexClientFactory.nodeRpcClient()
                                           .serverUrl("xxxx")
                                           .build();
 
-SyncRequestClient syncRequestClient = DexClientFactory.syncRequestClient()
-                                                      .serverUrl("https://vitex.vite.net/")
-                                                      .build();
-
 // cancle the order  on console.
 String cancelHash = rpcClient.cancelOrder("00000400fffffffff5ffffffffff005d3e9f49000444");
 logger.info("cancelHash:{}", cancelHash);
