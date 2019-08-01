@@ -141,12 +141,12 @@ NodeRpcClient rpcClient = DexClientFactory.nodeRpcClient()
 
 ### URL Options
 
-For Dex Server test request: `https://vitex.vite.net/beta`
-For Dex Server online request: `https://vitex.vite.net/`
-For Dex Server test subscription: `wss://vitex.vite.net/beta/websocket`
-For Dex Server online subscription: `wss://vitex.vite.net/websocket`
-For Vite Node test request: `TODO`
-For Vite Node online request: `TODO`
+* For Dex Server test request: `https://vitex.vite.net/beta`
+* For Dex Server online request: `https://vitex.vite.net/`
+* For Dex Server test subscription: `wss://vitex.vite.net/beta/websocket`
+* For Dex Server online subscription: `wss://vitex.vite.net/websocket`
+* For Vite Node test request: `TODO`
+* For Vite Node online request: `TODO`
 
 ### Synchronous
 
