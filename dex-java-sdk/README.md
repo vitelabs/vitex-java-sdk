@@ -141,12 +141,12 @@ NodeRpcClient rpcClient = DexClientFactory.nodeRpcClient()
 
 ### URL Options
 
-For Dex Server test request: `https://vitex.vite.net/beta`
-For Dex Server online request: `https://vitex.vite.net/`
-For Dex Server test subscription: `wss://vitex.vite.net/beta/websocket`
-For Dex Server online subscription: `wss://vitex.vite.net/websocket`
-For Vite Node test request: `TODO`
-For Vite Node online request: `TODO`
+* For Dex Server test request: `https://vitex.vite.net/beta`
+* For Dex Server online request: `https://vitex.vite.net/`
+* For Dex Server test subscription: `wss://vitex.vite.net/beta/websocket`
+* For Dex Server online subscription: `wss://vitex.vite.net/websocket`
+* For Vite Node test request: `TODO`
+* For Vite Node online request: `TODO`
 
 ### Synchronous
 
@@ -226,10 +226,6 @@ NodeRpcClient rpcClient = DexClientFactory.nodeRpcClient()
                                           .runPow(true)
                                           .serverUrl("xxxx")
                                           .build();
-
-SyncRequestClient syncRequestClient = DexClientFactory.syncRequestClient()
-                                                      .serverUrl("https://vitex.vite.net/")
-                                                      .build();
 
 // cancle the order  on console.
 String cancelHash = rpcClient.cancelOrder("00000400fffffffff5ffffffffff005d3e9f49000444");
@@ -524,7 +520,7 @@ subscriptionClient.subscribeTradeEvent("GRIN-000_ETH-000", t -> {
 });
 ```
 
-###Subscribe KLine update
+### Subscribe KLine update
 
 ```java
 // Subscribe candlestick update for btcusdt.
