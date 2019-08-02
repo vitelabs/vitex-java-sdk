@@ -24,7 +24,7 @@ class RestApiRequestParser {
         this.apiKey = apiKey;
         this.secretKey = secretKey;
         this.options = options;
-        this.serverUrl = options.getUrl() + "/api";
+        this.serverUrl = options.getUrl() + "api";
         try {
             String host = new URL(this.options.getUrl()).getHost();
             this.tradingHost = host;
