@@ -10,7 +10,7 @@ public enum QuoteTokenCategory {
 
     ETH("ETH"),
 
-    USD("USD");
+    USD("USDT");
 
     private static final EnumLookup<QuoteTokenCategory> lookup = new EnumLookup<>(QuoteTokenCategory.class);
     private final String code;
