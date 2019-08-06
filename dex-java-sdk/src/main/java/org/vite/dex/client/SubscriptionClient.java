@@ -1,6 +1,7 @@
 package org.vite.dex.client;
 
 import org.vite.dex.client.bean.enums.KlineInterval;
+import org.vite.dex.client.bean.enums.QuoteTokenCategory;
 import org.vite.dex.client.bean.event.*;
 import org.vite.dex.client.i.Subscription;
 import org.vite.dex.client.i.SubscriptionErrorHandler;
@@ -98,6 +99,16 @@ public class SubscriptionClient implements Subscription {
     @Override
     public void subscribe24HTickerStatisticsEvent(String symbols, SubscriptionListener<TickerStatisticsEvent> callback, SubscriptionErrorHandler errorHandler) {
         subscribe(requestImpl.subscribe24HTickerStatisticsEvent(symbols, callback, errorHandler));
+    }
+
+    @Override
+    public void subscribe24HTickerStatisticsEvent(QuoteTokenCategory quoteTokenCategory, SubscriptionListener<TickerStatisticsEvent> callback) {
+        subscribe24HTickerStatisticsEvent(quoteTokenCategory,callback,null);
+    }
+
+    @Override
+    public void subscribe24HTickerStatisticsEvent(QuoteTokenCategory quoteTokenCategory, SubscriptionListener<TickerStatisticsEvent> callback, SubscriptionErrorHandler errorHandler) {
+        subscribe(requestImpl.subscribe24HTickerStatisticsEvent(quoteTokenCategory, callback, errorHandler));
     }
 
     @Override

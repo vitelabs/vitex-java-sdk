@@ -4,7 +4,7 @@ import org.vite.dex.client.utils.EnumLookup;
 
 public enum QuoteTokenCategory {
 
-    VITE("quote"),
+    VITE("VITE"),
 
     BTC("BTC"),
 

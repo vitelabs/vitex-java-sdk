@@ -2,6 +2,7 @@ package org.vite.dex.client.i;
 
 
 import org.vite.dex.client.bean.enums.KlineInterval;
+import org.vite.dex.client.bean.enums.QuoteTokenCategory;
 import org.vite.dex.client.bean.event.*;
 
 /***
@@ -152,6 +153,29 @@ public interface Subscription {
      *                     between client and Dex server.
      */
     void subscribe24HTickerStatisticsEvent(String symbols, SubscriptionListener<TickerStatisticsEvent> callback, SubscriptionErrorHandler errorHandler);
+
+
+    /**
+     * Subscribe 24 hours trade statistics event. If statistics is generated, server will send the
+     * data to client and onReceive in callback will be called.
+     *
+     * @param quoteTokenCategory The category of quote token. Allowed value: [ VITE , ETH , BTC , USDT ]
+     * @param callback     The implementation is required. onReceive will be called if receive server's
+     *                     update.
+     */
+    void subscribe24HTickerStatisticsEvent(QuoteTokenCategory quoteTokenCategory, SubscriptionListener<TickerStatisticsEvent> callback);
+
+    /**
+     * Subscribe 24 hours trade statistics event. If statistics is generated, server will send the
+     * data to client and onReceive in callback will be called.
+     *
+     * @param quoteTokenCategory The category of quote token. Allowed value: [ VITE , ETH , BTC , USDT ]
+     * @param callback     The implementation is required. onReceive will be called if receive server's
+     *                     update.
+     * @param errorHandler The error handler will be called if subscription failed or error happen
+     *                     between client and Dex server.
+     */
+    void subscribe24HTickerStatisticsEvent(QuoteTokenCategory quoteTokenCategory, SubscriptionListener<TickerStatisticsEvent> callback, SubscriptionErrorHandler errorHandler);
 
     /**
      * Unsubscribe all subscription.

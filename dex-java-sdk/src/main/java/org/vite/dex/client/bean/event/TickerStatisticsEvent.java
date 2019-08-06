@@ -1,6 +1,7 @@
 package org.vite.dex.client.bean.event;
 
 import lombok.Data;
+import org.vite.dex.client.bean.enums.QuoteTokenCategory;
 
 @Data
 public class TickerStatisticsEvent {
@@ -10,6 +11,8 @@ public class TickerStatisticsEvent {
     String topic;
 
     String symbol;
+
+    QuoteTokenCategory quoteTokenCategory;
 
     DexPushMessage.TickerStatisticsProto data;
 }

@@ -199,8 +199,14 @@ public class SyncRequestClientTest {
 
     @Test
     public void getTickersByQuoteTokenCategory() {
-        List<TickerStatistics> tickersByQuoteTokenCategory = syncRequestClient.getTickersByQuoteTokenCategory(QuoteTokenCategory.BTC);
-        logger.info("data:{}", tickersByQuoteTokenCategory);
+        List<TickerStatistics> usdTickersByQuoteTokenCategory = syncRequestClient.getTickersByQuoteTokenCategory(QuoteTokenCategory.USD);
+        logger.info("data:{}", usdTickersByQuoteTokenCategory);
+        List<TickerStatistics> btcTickersByQuoteTokenCategory = syncRequestClient.getTickersByQuoteTokenCategory(QuoteTokenCategory.BTC);
+        logger.info("data:{}", btcTickersByQuoteTokenCategory);
+        List<TickerStatistics> ethTickersByQuoteTokenCategory = syncRequestClient.getTickersByQuoteTokenCategory(QuoteTokenCategory.ETH);
+        logger.info("data:{}", ethTickersByQuoteTokenCategory);
+        List<TickerStatistics> viteTickersByQuoteTokenCategory = syncRequestClient.getTickersByQuoteTokenCategory(QuoteTokenCategory.VITE);
+        logger.info("data:{}", viteTickersByQuoteTokenCategory);
     }
 
     @Test

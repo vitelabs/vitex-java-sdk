@@ -3,6 +3,7 @@ package org.vite.dex.client;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.vite.dex.client.bean.enums.KlineInterval;
+import org.vite.dex.client.bean.enums.QuoteTokenCategory;
 import org.vite.dex.client.bean.enums.TopicTemplate;
 import org.vite.dex.client.bean.event.*;
 import org.vite.dex.client.i.SubscriptionErrorHandler;
@@ -101,7 +102,24 @@ class WebSocketRequestImpl {
             TickerStatisticsEvent tickerStatisticsEvent = new TickerStatisticsEvent();
             tickerStatisticsEvent.setClientId(clientId);
             tickerStatisticsEvent.setTopic(topic);
-            tickerStatisticsEvent.setSymbol(topic.split(".")[1]);
+            tickerStatisticsEvent.setSymbol(topic.split("\\.")[1]);
+            tickerStatisticsEvent.setData(DexPushMessage.TickerStatisticsProto.parseFrom(data));
+            return tickerStatisticsEvent;
+        };
+        return request;
+    }
+
+    WebSocketRequest<TickerStatisticsEvent> subscribe24HTickerStatisticsEvent(QuoteTokenCategory quoteTokenCategory, SubscriptionListener<TickerStatisticsEvent> callback, SubscriptionErrorHandler errorHandler) {
+        InputChecker.checker()
+                .shouldNotNull(quoteTokenCategory,"quoteTokenCategory")
+                .shouldNotNull(callback, "callback");
+        WebSocketRequest<TickerStatisticsEvent> request = new WebSocketRequest<>(callback, errorHandler);
+        request.topics = genTopics(quoteTokenCategory.toString(), TopicTemplate.market_quoteTokenCategory_tickers, null);
+        request.eventParser = (clientId, topic, data) -> {
+            TickerStatisticsEvent tickerStatisticsEvent = new TickerStatisticsEvent();
+            tickerStatisticsEvent.setClientId(clientId);
+            tickerStatisticsEvent.setTopic(topic);
+            tickerStatisticsEvent.setQuoteTokenCategory(QuoteTokenCategory.lookup( topic.split("\\.")[2]));
             tickerStatisticsEvent.setData(DexPushMessage.TickerStatisticsProto.parseFrom(data));
             return tickerStatisticsEvent;
         };

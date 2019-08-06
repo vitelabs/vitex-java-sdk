@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.vite.dex.client.bean.enums.KlineInterval;
+import org.vite.dex.client.bean.enums.QuoteTokenCategory;
 import org.vite.dex.client.i.Subscription;
 
 import java.util.concurrent.TimeUnit;
@@ -157,6 +158,31 @@ public class SubscriptionTest {
             e.printStackTrace();
         }
 
+    }
+
+    @Test
+    public void subscribe24HTickerStatisticsEvent2() {
+        subscriptionClient.subscribe24HTickerStatisticsEvent(QuoteTokenCategory.USD, t -> {
+            logger.info("data:{}", t);
+        });
+
+        subscriptionClient.subscribe24HTickerStatisticsEvent(QuoteTokenCategory.ETH, t -> {
+            logger.info("data:{}", t);
+        });
+
+        subscriptionClient.subscribe24HTickerStatisticsEvent(QuoteTokenCategory.BTC, t -> {
+            logger.info("data:{}", t);
+        });
+
+        subscriptionClient.subscribe24HTickerStatisticsEvent(QuoteTokenCategory.VITE, t -> {
+            logger.info("data:{}", t);
+        });
+
+        try {
+            TimeUnit.HOURS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
