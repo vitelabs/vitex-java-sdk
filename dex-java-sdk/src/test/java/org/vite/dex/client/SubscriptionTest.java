@@ -164,6 +164,8 @@ public class SubscriptionTest {
     public void subscribe24HTickerStatisticsEvent2() {
         subscriptionClient.subscribe24HTickerStatisticsEvent(QuoteTokenCategory.USD, t -> {
             logger.info("data:{}", t);
+        },e->{
+            throw new RuntimeException("");
         });
 
         subscriptionClient.subscribe24HTickerStatisticsEvent(QuoteTokenCategory.ETH, t -> {
