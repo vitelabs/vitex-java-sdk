@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.vite.sdk</groupId>
-    <artifactId>dex-java-sdk</artifactId>
+    <artifactId>dex-java-api</artifactId>
     <version>1.0.0</version>
 
-    <name>dex-java-sdk</name>
+    <name>dex-java-api</name>
     <url>https://github.com/vitelabs/vite-dex-sdk</url>
 
     <properties>

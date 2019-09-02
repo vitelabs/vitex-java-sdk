@@ -1,24 +1,20 @@
-package org.vite.dex.api.client;
-
+package org.vite.dex.api.client.examples;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.vite.dex.api.client.DexApiClientFactory;
+import org.vite.dex.api.client.DexApiRestClient;
 import org.vite.dex.api.client.domain.KlineInterval;
 import org.vite.dex.api.client.domain.OrderSide;
 import org.vite.dex.api.client.domain.account.request.*;
 
-import static org.junit.Assert.*;
-
-@Ignore
 @Slf4j
-public class ViteApiAsyncRestClientTest {
+@Ignore
+public class DexApiRestClientTest {
 
-    ViteApiClientFactory factory = ViteApiClientFactory.newInstance("11111111", "22222222");
-    ViteApiRestClient client = factory.newRestClient();
+    DexApiClientFactory factory = DexApiClientFactory.newInstance("11111111", "22222222");
+    DexApiRestClient client = factory.newRestClient();
 
     @Test
     public void ping() {
@@ -52,7 +48,7 @@ public class ViteApiAsyncRestClientTest {
 
     @Test
     public void getCandlestickBars() {
-        log.info("getCandlestickBars:{}",client.getCandlestickBars("VTT-000_VITE", KlineInterval.Minute));
+        log.info("getCandlestickBars:{}",client.getCandlestickBars("VTT-000_VITE", KlineInterval.Week));
     }
 
     @Test

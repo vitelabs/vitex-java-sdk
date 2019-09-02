@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Vite's REST API URL mappings and endpoint security configuration.
  */
-public interface ViteApiService {
+public interface DexApiService {
 
     // General endpoints
 

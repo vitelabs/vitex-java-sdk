@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Vite API façade, supporting synchronous/blocking access Vite's REST API.
  */
-public interface ViteApiRestClient {
+public interface DexApiRestClient {
 
     // General endpoints
 

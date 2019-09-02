@@ -6,7 +6,7 @@ package org.vite.dex.api.client;
  * @param <T> the return type from the callback
  */
 @FunctionalInterface
-public interface ViteApiCallback<T> {
+public interface DexApiCallback<T> {
 
     /**
      * Called whenever a response comes back from the Vite API.

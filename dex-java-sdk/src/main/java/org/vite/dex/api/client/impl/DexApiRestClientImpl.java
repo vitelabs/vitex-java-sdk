@@ -1,7 +1,7 @@
 package org.vite.dex.api.client.impl;
 
 
-import org.vite.dex.api.client.ViteApiRestClient;
+import org.vite.dex.api.client.DexApiRestClient;
 import org.vite.dex.api.client.domain.KlineInterval;
 import org.vite.dex.api.client.domain.account.CancelOrderResponse;
 import org.vite.dex.api.client.domain.account.NewOrderResponse;
@@ -14,52 +14,52 @@ import org.vite.dex.api.client.utils.InputChecker;
 
 import java.util.List;
 
-import static org.vite.dex.api.client.impl.ViteApiServiceGenerator.createService;
-import static org.vite.dex.api.client.impl.ViteApiServiceGenerator.executeSync;
+import static org.vite.dex.api.client.impl.DexApiServiceGenerator.createService;
+import static org.vite.dex.api.client.impl.DexApiServiceGenerator.executeSync;
 
 /**
  * Implementation of Vite's REST API using Retrofit with synchronous/blocking method calls.
  */
-public class ViteApiRestClientImpl implements ViteApiRestClient {
+public class DexApiRestClientImpl implements DexApiRestClient {
 
-    private final ViteApiService viteApiService;
+    private final DexApiService dexApiService;
 
-    public ViteApiRestClientImpl(String apiKey, String secret) {
-        viteApiService = createService(ViteApiService.class, apiKey, secret);
+    public DexApiRestClientImpl(String apiKey, String secret) {
+        dexApiService = createService(DexApiService.class, apiKey, secret);
     }
 
     // General endpoints
 
     @Override
     public void ping() {
-        executeSync(viteApiService.ping());
+        executeSync(dexApiService.ping());
     }
 
     @Override
     public Long getServerTime() {
-        return executeSync(viteApiService.getServerTime());
+        return executeSync(dexApiService.getServerTime());
     }
 
     @Override
     public List<Market> getAllMarkets(String operator, String quoteCurrency) {
-        return executeSync(viteApiService.getAllMarkets(operator,quoteCurrency));
+        return executeSync(dexApiService.getAllMarkets(operator,quoteCurrency));
     }
 
     @Override
     public MarketDetail getMarketDetail(String symbol) {
-        return executeSync(viteApiService.getMarketDetail(symbol));
+        return executeSync(dexApiService.getMarketDetail(symbol));
     }
 
     // Market Data endpoints
 
     @Override
     public OrderBook getOrderBook(String symbol, Integer limit, Integer precision) {
-        return executeSync(viteApiService.getOrderBook(symbol,limit,precision));
+        return executeSync(dexApiService.getOrderBook(symbol,limit,precision));
     }
 
     @Override
     public List<LatestTrade> getTrades(String symbol, Integer limit) {
-        return executeSync(viteApiService.getTrades(symbol,limit));
+        return executeSync(dexApiService.getTrades(symbol,limit));
     }
 
     @Override
@@ -73,7 +73,7 @@ public class ViteApiRestClientImpl implements ViteApiRestClient {
                 .checkRange(startTime, 1564070400000L, System.currentTimeMillis() , "startTime")
                 .checkRange(endTime, 1564070400000L, System.currentTimeMillis() , "startTime")
                 .shouldNotNull(interval, "KlineInterval");
-        return executeSync(viteApiService.getCandlestickBars(symbol, interval.toString(), limit, startTime, endTime));
+        return executeSync(dexApiService.getCandlestickBars(symbol, interval.toString(), limit, startTime, endTime));
     }
 
     @Override
@@ -87,17 +87,17 @@ public class ViteApiRestClientImpl implements ViteApiRestClient {
                 .checkRange(startTime, 1564070400000L, System.currentTimeMillis() , "startTime")
                 .checkRange(endTime, 1564070400000L, System.currentTimeMillis() , "startTime")
                 .shouldNotNull(interval, "KlineInterval");
-        return executeSync(viteApiService.getCandlestickBars(symbol, interval.toString(), limit, startTime, endTime));
+        return executeSync(dexApiService.getCandlestickBars(symbol, interval.toString(), limit, startTime, endTime));
     }
 
     @Override
     public List<TickerStatistics> get24HrPriceStatistics(String symbol, String quoteCurrency) {
-        return executeSync(viteApiService.get24HrPriceStatistics(symbol, quoteCurrency));
+        return executeSync(dexApiService.get24HrPriceStatistics(symbol, quoteCurrency));
     }
 
     @Override
     public BookTicker getBookTicker(String symbol) {
-        return executeSync(viteApiService.getBookTicker(symbol));
+        return executeSync(dexApiService.getBookTicker(symbol));
     }
 
 
@@ -105,7 +105,7 @@ public class ViteApiRestClientImpl implements ViteApiRestClient {
 
     @Override
     public NewOrderResponse newOrder(NewOrderRequest order) {
-        return executeSync(viteApiService.newOrder(order.getSymbol(),
+        return executeSync(dexApiService.newOrder(order.getSymbol(),
                 order.getPrice(),
                 order.getAmount(),
                 order.getOrderSide().code(),
@@ -114,7 +114,7 @@ public class ViteApiRestClientImpl implements ViteApiRestClient {
 
     @Override
     public void newOrderTest(NewOrderRequest order) {
-        executeSync(viteApiService.newOrderTest(order.getSymbol(),
+        executeSync(dexApiService.newOrderTest(order.getSymbol(),
                 order.getPrice(),
                 order.getAmount(),
                 order.getOrderSide().code(),
@@ -123,21 +123,21 @@ public class ViteApiRestClientImpl implements ViteApiRestClient {
 
     @Override
     public Order getOrderStatus(QueryOrderRequest queryOrderRequest) {
-        return executeSync(viteApiService.getOrderStatus(queryOrderRequest.getSymbol(),
+        return executeSync(dexApiService.getOrderStatus(queryOrderRequest.getSymbol(),
                 queryOrderRequest.getOrderId(),
                 queryOrderRequest.getTimestamp()));
     }
 
     @Override
     public CancelOrderResponse cancelOrder(CancelOrderRequest cancelOrderRequest) {
-        return executeSync(viteApiService.cancelOrder(cancelOrderRequest.getSymbol(),
+        return executeSync(dexApiService.cancelOrder(cancelOrderRequest.getSymbol(),
                 cancelOrderRequest.getOrderId(),
                 cancelOrderRequest.getTimestamp()));
     }
 
     @Override
     public List<Order> getAllOrders(QueryOrdersRequest orderRequest) {
-        return executeSync(viteApiService.getAllOrders(orderRequest.getSymbol(),
+        return executeSync(dexApiService.getAllOrders(orderRequest.getSymbol(),
                 orderRequest.getStartTime(),
                 orderRequest.getEndTime(),
                 null == orderRequest.getSide() ? null : orderRequest.getSide().code(),
@@ -148,7 +148,7 @@ public class ViteApiRestClientImpl implements ViteApiRestClient {
 
     @Override
     public List<CancelOrderResponse> cancelOrders(CancelOrdersRequest cancelOrdersRequest) {
-        return executeSync(viteApiService.cancelOrders(cancelOrdersRequest.getSymbol(),
+        return executeSync(dexApiService.cancelOrders(cancelOrdersRequest.getSymbol(),
                 cancelOrdersRequest.getTimestamp()));
     }
 }

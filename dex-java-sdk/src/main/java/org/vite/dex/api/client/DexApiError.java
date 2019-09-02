@@ -6,7 +6,7 @@ import org.vite.dex.api.client.constant.DexApiConstants;
 /**
  * Vite API error object.
  */
-public class ViteApiError {
+public class DexApiError {
 
     /**
      * Error code.

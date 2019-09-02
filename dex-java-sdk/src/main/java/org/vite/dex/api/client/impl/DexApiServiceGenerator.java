@@ -2,9 +2,7 @@ package org.vite.dex.api.client.impl;
 
 import okhttp3.Dispatcher;
 import okhttp3.OkHttpClient;
-import okhttp3.ResponseBody;
 import org.apache.commons.lang3.StringUtils;
-import org.vite.dex.api.client.ViteApiError;
 import org.vite.dex.api.client.constant.DexApiConstants;
 import org.vite.dex.api.client.exception.DexApiException;
 import org.vite.dex.api.client.secret.AuthenticationInterceptor;
@@ -12,16 +10,14 @@ import retrofit2.Call;
 import retrofit2.Converter;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import java.io.IOException;
-import java.lang.annotation.Annotation;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Generates a Vite API implementation based on @see {@link ViteApiService}.
+ * Generates a Vite API implementation based on @see {@link DexApiService}.
  */
-public class ViteApiServiceGenerator {
+public class DexApiServiceGenerator {
 
     private static final OkHttpClient sharedClient;
     private static final Converter.Factory converterFactory = FastJsonConverterFactory.create();

@@ -1,14 +1,12 @@
 package org.vite.dex.api.client;
 
-import org.vite.dex.api.client.impl.ViteApiAsyncRestClientImpl;
-import org.vite.dex.api.client.impl.ViteApiRestClientImpl;
-
-import static org.vite.dex.api.client.impl.ViteApiServiceGenerator.getSharedClient;
+import org.vite.dex.api.client.impl.DexApiAsyncRestClientImpl;
+import org.vite.dex.api.client.impl.DexApiRestClientImpl;
 
 /**
  * A factory for creating ViteApi client objects.
  */
-public class ViteApiClientFactory {
+public class DexApiClientFactory {
 
     /**
      * API Key
@@ -26,7 +24,7 @@ public class ViteApiClientFactory {
      * @param apiKey the API key
      * @param secret the Secret
      */
-    private ViteApiClientFactory(String apiKey, String secret) {
+    private DexApiClientFactory(String apiKey, String secret) {
         this.apiKey = apiKey;
         this.secret = secret;
     }
@@ -38,8 +36,8 @@ public class ViteApiClientFactory {
      * @param secret the Secret
      * @return the vite api client factory
      */
-    public static ViteApiClientFactory newInstance(String apiKey, String secret) {
-        return new ViteApiClientFactory(apiKey, secret);
+    public static DexApiClientFactory newInstance(String apiKey, String secret) {
+        return new DexApiClientFactory(apiKey, secret);
     }
 
     /**
@@ -47,22 +45,22 @@ public class ViteApiClientFactory {
      *
      * @return the vite api client factory
      */
-    public static ViteApiClientFactory newInstance() {
-        return new ViteApiClientFactory(null, null);
+    public static DexApiClientFactory newInstance() {
+        return new DexApiClientFactory(null, null);
     }
 
     /**
      * Creates a new synchronous/blocking REST client.
      */
-    public ViteApiRestClient newRestClient() {
-        return new ViteApiRestClientImpl(apiKey, secret);
+    public DexApiRestClient newRestClient() {
+        return new DexApiRestClientImpl(apiKey, secret);
     }
 
     /**
      * Creates a new asynchronous/non-blocking REST client.
      */
-    public ViteApiAsyncRestClient newAsyncRestClient() {
-        return new ViteApiAsyncRestClientImpl(apiKey, secret);
+    public DexApiAsyncRestClient newAsyncRestClient() {
+        return new DexApiAsyncRestClientImpl(apiKey, secret);
     }
 
 }
