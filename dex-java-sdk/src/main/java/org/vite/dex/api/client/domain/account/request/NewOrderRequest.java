@@ -3,7 +3,7 @@ package org.vite.dex.api.client.domain.account.request;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.vite.dex.api.client.domain.OrderSide;
+import org.vite.dex.api.client.domain.enums.OrderSide;
 
 @Data
 @AllArgsConstructor

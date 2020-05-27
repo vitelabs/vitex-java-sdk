@@ -9,9 +9,9 @@ public class BookTicker {
 
     private String bidPrice;
 
-    private String bidVolume;
+    private String bidQuantity;
 
     private String askPrice;
 
-    private String askVolume;
+    private String askQuantity;
 }

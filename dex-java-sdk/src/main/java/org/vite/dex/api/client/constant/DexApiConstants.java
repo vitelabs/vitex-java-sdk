@@ -10,7 +10,8 @@ public class DexApiConstants {
     /**
      * REST API base URL.
      */
-    public static final String API_BASE_URL = "http://132.232.65.121:8080/test/";
+    public static final String API_BASE_URL = "https://api.vitex.net/test/";
+    public static final String PROD_API_BASE_URL = "https://api.vitex.net/";
             //"http://localhost:8082/dev/";
      //       "http://132.232.65.121:8080/test/";
     //https://api.vitex.net
