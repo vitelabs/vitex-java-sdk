@@ -29,31 +29,19 @@ public class WebSocketConnection extends WebSocketListener {
     private final Request okHttpRequest;
     private final WebSocketWatchDog watchDog;
     private final String clientId;
-    private final String apiKey;
-    private final String secretKey;
     private WebSocket webSocket = null;
     private volatile long lastReceivedTime = 0;
     private volatile ConnectionState state = ConnectionState.IDLE;
     private int delayInSecond = 0;
     private String subscriptionServerUrl;
-    private String tradingHost;
     private Map<String, WebSocketRequest> topicWebSocketRequestMap = Maps.newConcurrentMap();
     private Map<String, WebSocketRequest> topicsWebSocketRequestMap = Maps.newConcurrentMap();
     public WebSocketConnection(
-            String apiKey,
-            String secretKey,
             SubscriptionOptions options,
             WebSocketWatchDog watchDog) {
-        this.apiKey = apiKey;
-        this.secretKey = secretKey;
         this.clientId = uuid.toString() + "_" + WebSocketConnection.connectionCounter++;
         this.subscriptionServerUrl = options.getUrl();
-        try {
-            String host = new URL(options.getUrl().replaceAll("wss", "https")).getHost();
-            this.tradingHost = host;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
         this.okHttpRequest = new Request.Builder().url(subscriptionServerUrl).build();
         this.watchDog = watchDog;
         log.info("[Sub] Connection [id: " + this.clientId + "] created");

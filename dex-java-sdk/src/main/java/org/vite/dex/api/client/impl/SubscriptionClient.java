@@ -17,10 +17,6 @@ public class SubscriptionClient implements Subscription {
     private WebSocketWatchDog watchDog;
     private SubscriptionOptions options;
 
-    private String apiKey;
-    private String secretKey;
-    private String serverUrl;
-
     private SubscriptionClient() {
 
     }
@@ -29,18 +25,7 @@ public class SubscriptionClient implements Subscription {
         return new SubscriptionClient();
     }
 
-    public SubscriptionClient apiKey(String apiKey) {
-        this.apiKey = apiKey;
-        return this;
-    }
-
-    public SubscriptionClient secretKey(String secretKey) {
-        this.secretKey = secretKey;
-        return this;
-    }
-
     public SubscriptionClient serverUrl(String serverUrl) {
-        this.serverUrl = serverUrl;
         this.options = new SubscriptionOptions(serverUrl);
         return this;
     }
@@ -61,7 +46,7 @@ public class SubscriptionClient implements Subscription {
             watchDog = new WebSocketWatchDog(options);
         }
         this.requestImpl = new WebSocketRequestImpl();
-        connection = new WebSocketConnection(apiKey, secretKey, options, watchDog);
+        connection = new WebSocketConnection(options, watchDog);
         connection.connect();
         return this;
     }
