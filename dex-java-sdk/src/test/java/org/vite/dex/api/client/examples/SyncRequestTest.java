@@ -57,7 +57,7 @@ public class SyncRequestTest {
 
     @Test
     public void get24HrPriceStatistics() {
-        log.info("get24HrPriceStatistics:{}",JSONObject.toJSONString(client.getTickers("ETH-000_BTC-000,GRIN-000_BTC-000",null, null)));
+        log.info("get24HrPriceStatistics:{}",JSONObject.toJSONString(client.getTickers("ETH-000_BTC-000",null, null)));
     }
 
     @Test
