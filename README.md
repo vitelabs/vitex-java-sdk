@@ -1,10 +1,9 @@
 # vite-dex-sdk
 ### SDK Support 
 
-|联系我们|Contact Us||
-|---|---|---|
-|微信号|WeChat ID|ViteDexSdkSupport|
-|邮  箱|E-mail||
+|Contact Us||
+|---|---|
+|Telegram|https://t.me/vite_en|
 
 ### Supported language: Java
 ---
