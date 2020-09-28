@@ -28,5 +28,3 @@ logs/
 hs_err_pid*
 /vite-dex-sdk.iml
 /.idea/
-/.idea/modules.xml
-/.idea/misc.xml
