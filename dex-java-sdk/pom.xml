@@ -15,7 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <okhttp3.version>3.12.1</okhttp3.version>
-        <fastjson.version>1.2.47</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <kotlin.version>1.2.71</kotlin.version>
         <com.squareup.retrofit2.version>2.4.0</com.squareup.retrofit2.version>
         <javadocExecutable>${java.home}/../bin/javadoc</javadocExecutable>
